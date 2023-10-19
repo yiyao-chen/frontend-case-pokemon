@@ -26,7 +26,9 @@ const App = () => {
 
   return (
     <div className={`appRoot ${isFlipped ? "flipped" : ""}`}>
-      <SearchBar onSearch={handleSearch} />
+      <div className="searchbar-container">
+        <SearchBar onSearch={handleSearch} />
+      </div>
       <div className="card-container">
         <div className={`info-card ${isFlipped ? "flipped" : ""}`}>
           <InfoContainer pokemon={pokemon} isFlipped={isFlipped} />
