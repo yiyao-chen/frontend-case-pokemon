@@ -75,7 +75,7 @@
 
 .abilities p,
 .moves p {
-  margin: 0;
+  margin: 6px;
   padding: 0;
 }
 
