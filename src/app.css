@@ -18,6 +18,8 @@
   align-items: center;
   justify-content: center;
   background-color: #fcf6f6;
+  overflow: hidden;
+  height: 700px;
 }
 
 .imageContainer {

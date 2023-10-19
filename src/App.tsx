@@ -10,6 +10,7 @@ import SearchBar from "./components/SearchBar";
 const App = () => {
   const [pokemon, setPokemon] = useState<Pokemon>();
   const [searchTerm, setSearchTerm] = useState<string>("bulbasaur");
+  const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   useEffect(() => {
     fetchPokemon(searchTerm).then((res) => setPokemon(res));
@@ -19,10 +20,21 @@ const App = () => {
     setSearchTerm(term);
   };
 
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
-    <div className="appRoot">
+    <div className={`appRoot ${isFlipped ? "flipped" : ""}`}>
       <SearchBar onSearch={handleSearch} />
-      <InfoContainer pokemon={pokemon} />
+      <div className="card-container">
+        <div className={`info-card ${isFlipped ? "flipped" : ""}`}>
+          <InfoContainer pokemon={pokemon} isFlipped={isFlipped} />
+          <button onClick={handleFlip} className="flip-button">
+            Flip Card
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
