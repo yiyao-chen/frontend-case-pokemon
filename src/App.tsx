@@ -26,17 +26,25 @@ const App = () => {
 
   return (
     <div className={`appRoot ${isFlipped ? "flipped" : ""}`}>
+      <div className="header">
+        <h1>Welcome to the Pokémon Information App</h1>
+        <p>
+          Explore details about your favorite Pokémon and learn more about their
+          abilities and moves.
+        </p>
+      </div>
+
       <div className="searchbar-container">
         <SearchBar onSearch={handleSearch} />
       </div>
       <div className="card-container">
         <div className={`info-card ${isFlipped ? "flipped" : ""}`}>
           <InfoContainer pokemon={pokemon} isFlipped={isFlipped} />
-          <button onClick={handleFlip} className="flip-button">
-            Flip Card
-          </button>
         </div>
       </div>
+      <button onClick={handleFlip} className="flip-button">
+        Flip Card
+      </button>
     </div>
   );
 };
