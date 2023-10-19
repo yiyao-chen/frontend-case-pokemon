@@ -32,9 +32,11 @@ const InfoContainer: React.FunctionComponent<Props> = ({
 
           <div>
             <h3>Moves:</h3>
-            {poke.moves.splice(0, 2).map((move, index) => (
-              <p>{move.move.name}</p>
-            ))}
+            {poke.moves
+              .filter((_, index) => index < 2) // get first two moves
+              .map((move, index) => (
+                <p>{move.move.name}</p>
+              ))}
           </div>
         </div>
       );
@@ -56,19 +58,30 @@ const InfoContainer: React.FunctionComponent<Props> = ({
             <p>Weight: {poke.weight} hg</p>
           </div>
 
-          <div className="types">
-            {poke.types.map((type, index) => (
-              <div className="type" key={index}>
-                <p>{type.type.name}</p>
-              </div>
-            ))}
-          </div>
-
-          <div>
+          <div className="abilities">
             <h3>Abilities:</h3>
             {poke.abilities.map((ability, index) => (
               <div className="ability" key={index}>
                 <p>{ability.ability.name}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="moves">
+            <h3>Moves:</h3>
+            {poke.moves
+              .filter((_, index) => index < 2) // get first two moves
+              .map((move, index) => (
+                <div className="move" key={index}>
+                  <p>{move.move.name}</p>
+                </div>
+              ))}
+          </div>
+
+          <div className="types">
+            {poke.types.map((type, index) => (
+              <div className="type" key={index}>
+                <p>{type.type.name}</p>
               </div>
             ))}
           </div>
